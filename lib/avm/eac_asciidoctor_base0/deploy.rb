@@ -18,7 +18,7 @@ module Avm
 
       def project_uncached
         ::Avm::EacAsciidoctorBase0::Sources::Base.new(
-          instance.source_instance.read_entry(::Avm::Instances::EntryKeys::FS_PATH)
+          instance.source_instance.read_entry(::Avm::Instances::EntryKeys::INSTALL_PATH)
         )
       end
     end
