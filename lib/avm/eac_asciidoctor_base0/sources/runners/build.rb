@@ -24,7 +24,7 @@ module Avm
           private
 
           def build_uncached
-            ::Avm::EacAsciidoctorBase0::Sources::Build.new(runner_context.call(:project),
+            ::Avm::EacAsciidoctorBase0::Sources::Build.new(runner_context.call(:source),
                                                            target_directory: parsed.target_dir)
           end
 
