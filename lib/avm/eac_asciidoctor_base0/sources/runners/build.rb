@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'avm/tools/core_ext'
 require 'avm/eac_asciidoctor_base0/sources/build'
+require 'eac_cli/core_ext'
 require 'os'
 
 module Avm
