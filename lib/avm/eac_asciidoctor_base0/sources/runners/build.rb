@@ -44,7 +44,7 @@ module Avm
           end
 
           def start_banner
-            runner_context.call(:project_banner)
+            runner_context.call(:source_banner)
             infov 'Target directory', build.target_directory
           end
         end
