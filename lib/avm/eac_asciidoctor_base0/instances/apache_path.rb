@@ -4,7 +4,9 @@ require 'avm/eac_webapp_base0/apache_path'
 
 module Avm
   module EacAsciidoctorBase0
-    class ApachePath < ::Avm::EacWebappBase0::ApachePath
+    module Instances
+      class ApachePath < ::Avm::EacWebappBase0::ApachePath
+      end
     end
   end
 end
