@@ -1,0 +1,9 @@
+= EacAsciidoctorBase0 Generated Source =
+
+== First Section
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sapien.
+
+== Second Section
+
+Nam faucibus quis dui at laoreet. Pellentesque ut sapien est.
