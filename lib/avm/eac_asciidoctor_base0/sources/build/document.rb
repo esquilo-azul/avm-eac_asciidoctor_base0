@@ -14,7 +14,7 @@ module Avm
           #
           # @return [Pathname]
           def body_source_path
-            build.source.path.join(subpath)
+            root_source_path
           end
 
           # Absolute path to the output of Asciidoctor's source file.
@@ -25,11 +25,18 @@ module Avm
           end
 
           def perform
-            infov 'Building', subpath
+            infov 'Building', root_source_path
             ::Asciidoctor.convert_file(
               body_source_path.to_path,
               to_file: body_target_path.to_path, safe: :unsafe, mkdirs: true
             )
+          end
+
+          # Absolute path to the document's source root.
+          #
+          # @return [Pathname]
+          def root_source_path
+            build.source.path.join(subpath)
           end
         end
       end
