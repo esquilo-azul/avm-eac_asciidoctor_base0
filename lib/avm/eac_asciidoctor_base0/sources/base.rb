@@ -8,7 +8,7 @@ module Avm
   module EacAsciidoctorBase0
     module Sources
       class Base < ::Avm::EacWebappBase0::Sources::Base
-        CONTENT_DIRECTORY_SUBPATH = ::Pathname.new('.')
+        CONTENT_DIRECTORY_SUBPATH = ::Pathname.new('content')
         CONTENT_DOCUMENT_BASENAME = ::Pathname.new('index.adoc')
         MAIN_FILE_SUBPATH = CONTENT_DIRECTORY_SUBPATH.join(CONTENT_DOCUMENT_BASENAME)
 
