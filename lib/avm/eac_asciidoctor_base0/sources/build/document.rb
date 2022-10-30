@@ -17,14 +17,19 @@ module Avm
             build.source.path.join(subpath)
           end
 
-          def perform
-            infov 'Building', subpath
-            ::Asciidoctor.convert_file body_source_path.to_path,
-                                       to_file: target_path.to_path, safe: :unsafe, mkdirs: true
+          # Absolute path to the output of Asciidoctor's source file.
+          #
+          # @return [Pathname]
+          def body_target_path
+            build.target_directory.join(subpath).basename_sub('.*') { |b| "#{b}.html" }
           end
 
-          def target_path
-            build.target_directory.join(subpath).basename_sub('.*') { |b| "#{b}.html" }
+          def perform
+            infov 'Building', subpath
+            ::Asciidoctor.convert_file(
+              body_source_path.to_path,
+              to_file: body_target_path.to_path, safe: :unsafe, mkdirs: true
+            )
           end
         end
       end

@@ -40,7 +40,7 @@ module Avm
           end
 
           def open_path
-            build.source_files.first.target_path
+            build.source_files.first.body_target_path
           end
 
           def start_banner
