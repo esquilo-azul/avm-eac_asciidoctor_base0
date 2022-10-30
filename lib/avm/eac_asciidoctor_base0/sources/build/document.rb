@@ -36,7 +36,7 @@ module Avm
           #
           # @return [Pathname]
           def root_source_path
-            build.source.path.join(subpath)
+            build.source.content_directory.join(subpath)
           end
         end
       end

@@ -36,7 +36,7 @@ module Avm
 
         def source_files_uncached
           r = []
-          source.path.children.each do |child|
+          source.content_directory.children.each do |child|
             next unless SOURCE_EXTNAMES.include?(child.extname)
 
             r << ::Avm::EacAsciidoctorBase0::Sources::Build::Document.new(self, child.basename)
