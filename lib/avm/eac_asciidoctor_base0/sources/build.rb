@@ -19,29 +19,23 @@ module Avm
         SOURCE_EXTNAMES = %w[.adoc .asc].freeze
 
         def perform
-          infov 'Files to build', source_files.count
+          infov 'Files to build', root_document.tree_documents_count
           target_directory.clear
-          source_files.each(&:perform)
+          root_document.perform
         end
 
         def default_target_directory
           source.path.join('build')
         end
 
+        def root_document
+          ::Avm::EacAsciidoctorBase0::Sources::Build::Document.new(self, nil, nil)
+        end
+
         def target_directory
           ::EacRubyUtils::Fs::ClearableDirectory.new(
             options[OPTION_TARGET_DIRECTORY] || default_target_directory
           )
-        end
-
-        def source_files_uncached
-          r = []
-          source.content_directory.children.each do |child|
-            next unless SOURCE_EXTNAMES.include?(child.extname)
-
-            r << ::Avm::EacAsciidoctorBase0::Sources::Build::Document.new(self, child.basename)
-          end
-          r
         end
       end
     end

@@ -15,8 +15,13 @@ require 'eac_fs/comparator'
   end
 
   before do
-    %w[doc1 doc2 doc2_1].each do |basename|
-      ::FileUtils.cp(main_document, source.content_directory.join("#{basename}.adoc"))
+    %w[doc1 doc2 doc2/doc2_1].each do |subpath|
+      target_dir = source.content_directory.join(subpath)
+      target_dir.mkpath
+      ::FileUtils.cp(
+        main_document,
+        target_dir.join(::Avm::EacAsciidoctorBase0::Sources::Base::CONTENT_DOCUMENT_BASENAME)
+      )
     end
     instance.perform
   end
