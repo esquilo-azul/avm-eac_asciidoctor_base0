@@ -10,14 +10,17 @@ module Avm
           enable_speaker
           common_constructor :build, :subpath
 
-          def perform
-            infov 'Building', subpath
-            ::Asciidoctor.convert_file source_path.to_path,
-                                       to_file: target_path.to_path, safe: :unsafe, mkdirs: true
+          # Absolute path to the Asciidoctor file.
+          #
+          # @return [Pathname]
+          def body_source_path
+            build.source.path.join(subpath)
           end
 
-          def source_path
-            build.source.path.join(subpath)
+          def perform
+            infov 'Building', subpath
+            ::Asciidoctor.convert_file body_source_path.to_path,
+                                       to_file: target_path.to_path, safe: :unsafe, mkdirs: true
           end
 
           def target_path
