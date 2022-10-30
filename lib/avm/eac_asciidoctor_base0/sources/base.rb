@@ -9,7 +9,8 @@ module Avm
     module Sources
       class Base < ::Avm::EacWebappBase0::Sources::Base
         CONTENT_DIRECTORY_SUBPATH = ::Pathname.new('.')
-        MAIN_FILE_SUBPATH = CONTENT_DIRECTORY_SUBPATH.join('index.adoc')
+        CONTENT_DOCUMENT_BASENAME = ::Pathname.new('index.adoc')
+        MAIN_FILE_SUBPATH = CONTENT_DIRECTORY_SUBPATH.join(CONTENT_DOCUMENT_BASENAME)
 
         def valid?
           path.join(MAIN_FILE_SUBPATH).file?
