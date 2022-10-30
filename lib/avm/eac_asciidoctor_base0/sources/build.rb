@@ -12,7 +12,7 @@ module Avm
         enable_simple_cache
         enable_listable
         lists.add_symbol :option, :target_directory
-        common_constructor :project, :options, default: [{}] do
+        common_constructor :source, :options, default: [{}] do
           self.options = self.class.lists.option.hash_keys_validate!(options.symbolize_keys)
         end
 
@@ -25,7 +25,7 @@ module Avm
         end
 
         def default_target_directory
-          project.path.join('build')
+          source.path.join('build')
         end
 
         def target_directory
@@ -36,7 +36,7 @@ module Avm
 
         def source_files_uncached
           r = []
-          project.path.children.each do |child|
+          source.path.children.each do |child|
             next unless SOURCE_EXTNAMES.include?(child.extname)
 
             r << ::Avm::EacAsciidoctorBase0::Sources::Build::File.new(self, child.basename)

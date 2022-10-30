@@ -17,7 +17,7 @@ module Avm
           end
 
           def source_path
-            build.project.path.join(subpath)
+            build.source.path.join(subpath)
           end
 
           def target_path
