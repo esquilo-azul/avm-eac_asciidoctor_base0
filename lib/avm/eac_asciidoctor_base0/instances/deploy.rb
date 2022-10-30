@@ -12,7 +12,7 @@ module Avm
           ::Avm::EacAsciidoctorBase0::Sources::Build.new(
             project,
             ::Avm::EacAsciidoctorBase0::Sources::Build::OPTION_TARGET_DIRECTORY => build_dir
-          ).run
+          ).perform
         end
 
         private

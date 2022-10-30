@@ -17,7 +17,7 @@ module Avm
 
           def run
             start_banner
-            build.run
+            build.perform
             open
           end
 

@@ -18,7 +18,7 @@ module Avm
 
         SOURCE_EXTNAMES = %w[.adoc .asc].freeze
 
-        def run
+        def perform
           infov 'Files to build', source_files.count
           target_directory.clear
           source_files.each(&:run)

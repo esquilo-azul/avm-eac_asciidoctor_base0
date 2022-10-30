@@ -18,7 +18,7 @@ require 'eac_fs/comparator'
     %w[doc1 doc2 doc2_1].each do |basename|
       ::FileUtils.cp(main_document, source.path.join("#{basename}.adoc"))
     end
-    instance.run
+    instance.perform
   end
 
   it do
