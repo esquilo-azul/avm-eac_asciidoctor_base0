@@ -21,7 +21,7 @@ module Avm
         def perform
           infov 'Files to build', source_files.count
           target_directory.clear
-          source_files.each(&:run)
+          source_files.each(&:perform)
         end
 
         def default_target_directory

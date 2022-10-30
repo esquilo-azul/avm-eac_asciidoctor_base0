@@ -10,7 +10,7 @@ module Avm
           enable_speaker
           common_constructor :build, :subpath
 
-          def run
+          def perform
             infov 'Building', subpath
             ::Asciidoctor.convert_file source_path.to_path,
                                        to_file: target_path.to_path, safe: :unsafe, mkdirs: true
