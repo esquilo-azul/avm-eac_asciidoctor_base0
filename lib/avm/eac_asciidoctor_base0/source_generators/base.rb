@@ -8,9 +8,6 @@ module Avm
   module EacAsciidoctorBase0
     module SourceGenerators
       class Base < ::Avm::SourceGenerators::Base
-        IDENT = '  '
-        JOBS = %w[main_document].freeze
-        TEMPLATE_VARIABLES = %w[lib_path name root_module].freeze
         OPTIONS = {}.freeze
 
         enable_speaker
