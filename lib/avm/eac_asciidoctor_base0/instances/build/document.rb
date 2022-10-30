@@ -31,14 +31,6 @@ module Avm
             ).basename_sub('.*') { |b| "#{b}.html" }
           end
 
-          def mydebug
-            root_source_path.print_debug(title: 'Document')
-            children.count.print_debug(label: 'children.count')
-            body_source_path.print_debug(label: 'body_source')
-            body_source_path.file?.print_debug(label: 'body_source.file?')
-            body_target_path.print_debug(label: 'body_target')
-          end
-
           def perform
             perform_self
             perform_children
