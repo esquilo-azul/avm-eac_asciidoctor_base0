@@ -18,5 +18,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'os', '~> 1.1', '>= 1.1.4'
   s.add_dependency 'rouge', '~> 3.30'
 
+  s.add_development_dependency 'eac_fs', '~> 0.14'
   s.add_development_dependency 'eac_ruby_gem_support', '~> 0.2'
 end
