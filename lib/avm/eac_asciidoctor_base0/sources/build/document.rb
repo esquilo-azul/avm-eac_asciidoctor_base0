@@ -6,7 +6,7 @@ module Avm
   module EacAsciidoctorBase0
     module Sources
       class Build
-        class File
+        class Document
           enable_speaker
           common_constructor :build, :subpath
 

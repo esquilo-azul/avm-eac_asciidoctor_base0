@@ -39,7 +39,7 @@ module Avm
           source.path.children.each do |child|
             next unless SOURCE_EXTNAMES.include?(child.extname)
 
-            r << ::Avm::EacAsciidoctorBase0::Sources::Build::File.new(self, child.basename)
+            r << ::Avm::EacAsciidoctorBase0::Sources::Build::Document.new(self, child.basename)
           end
           r
         end
