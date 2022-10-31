@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
 require 'asciidoctor'
+require 'eac_ruby_utils/core_ext'
 
 module Avm
   module EacAsciidoctorBase0
     module Instances
       class Build
         class Document
+          require_sub __FILE__
+
           ROOT_BODY_TARGET_BASENAME = 'index'
 
           enable_simple_cache
@@ -38,14 +41,19 @@ module Avm
 
           def perform_self
             infov 'Building', root_source_path
-            ::Asciidoctor.convert_file(
-              body_source_path.to_path,
+            ::Asciidoctor.convert(
+              pre_processed_body_source_content,
               to_file: body_target_path.to_path, safe: :unsafe, mkdirs: true
             )
           end
 
           def perform_children
             children.each(&:perform)
+          end
+
+          # @return [String]
+          def pre_processed_body_source_content
+            body_source_path.read.each_line.map { |line| pre_process_line(line.rstrip) + "\n" }.join
           end
 
           def tree_documents_count
