@@ -23,6 +23,10 @@ require 'eac_fs/comparator'
     application.entry('stereotype').write('EacAsciidoctorBase0')
     ::EacConfig::Node.context.current.entry("#{application.id}_dev.install.path")
                      .value = source.path.to_path
+    application_instance.entry('install.name').write('The Author')
+    application_instance.entry('install.name_initials').write('T.A.')
+    application_instance.entry('install.email').write('theauthor@example.net')
+    application_instance.entry('web.url').write('https://www.example.net')
     %w[doc1 doc2 doc2/doc2_1].each do |subpath|
       target_dir = source.content_directory.join(subpath)
       target_dir.mkpath
