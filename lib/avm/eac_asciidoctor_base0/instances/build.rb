@@ -12,7 +12,7 @@ module Avm
         enable_simple_cache
         enable_listable
         lists.add_symbol :option, :target_directory
-        common_constructor :source, :options, default: [{}] do
+        common_constructor :instance, :options, default: [{}] do
           self.options = self.class.lists.option.hash_keys_validate!(options.symbolize_keys)
         end
 
@@ -30,6 +30,11 @@ module Avm
 
         def root_document
           ::Avm::EacAsciidoctorBase0::Instances::Build::Document.new(self, nil, nil)
+        end
+
+        # @return [Avm::EacAsciidoctorBase0::Sources::Base]
+        def source
+          instance.application.local_source
         end
 
         def target_directory
