@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'avm/eac_asciidoctor_base0/sources/build'
+require 'avm/eac_asciidoctor_base0/instances/build'
 require 'eac_cli/core_ext'
 require 'os'
 
@@ -24,8 +24,8 @@ module Avm
           private
 
           def build_uncached
-            ::Avm::EacAsciidoctorBase0::Sources::Build.new(runner_context.call(:source),
-                                                           target_directory: parsed.target_dir)
+            ::Avm::EacAsciidoctorBase0::Instances::Build.new(runner_context.call(:source),
+                                                             target_directory: parsed.target_dir)
           end
 
           def default_target_directory

@@ -5,7 +5,7 @@ require 'eac_ruby_utils/fs/clearable_directory'
 
 module Avm
   module EacAsciidoctorBase0
-    module Sources
+    module Instances
       class Build
         require_sub __FILE__
         enable_speaker
@@ -29,7 +29,7 @@ module Avm
         end
 
         def root_document
-          ::Avm::EacAsciidoctorBase0::Sources::Build::Document.new(self, nil, nil)
+          ::Avm::EacAsciidoctorBase0::Instances::Build::Document.new(self, nil, nil)
         end
 
         def target_directory

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require 'avm/eac_asciidoctor_base0/sources/base'
-require 'avm/eac_asciidoctor_base0/sources/build'
+require 'avm/eac_asciidoctor_base0/instances/build'
 require 'eac_fs/comparator'
 
-::RSpec.describe ::Avm::EacAsciidoctorBase0::Sources::Build do
+::RSpec.describe ::Avm::EacAsciidoctorBase0::Instances::Build do
   let(:fixtures_dir) { __dir__.to_pathname.join('build_spec_files') }
   let(:fs_comparator) { ::EacFs::Comparator.new.truncate_file('*.html') }
   let(:instance) { described_class.new(source) }

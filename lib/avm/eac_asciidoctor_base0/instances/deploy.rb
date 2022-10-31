@@ -2,16 +2,16 @@
 
 require 'avm/eac_webapp_base0/instances/deploy'
 require 'avm/eac_asciidoctor_base0/sources/base'
-require 'avm/eac_asciidoctor_base0/sources/build'
+require 'avm/eac_asciidoctor_base0/instances/build'
 
 module Avm
   module EacAsciidoctorBase0
     module Instances
       class Deploy < ::Avm::EacWebappBase0::Instances::Deploy
         def build_content
-          ::Avm::EacAsciidoctorBase0::Sources::Build.new(
+          ::Avm::EacAsciidoctorBase0::Instances::Build.new(
             project,
-            ::Avm::EacAsciidoctorBase0::Sources::Build::OPTION_TARGET_DIRECTORY => build_dir
+            ::Avm::EacAsciidoctorBase0::Instances::Build::OPTION_TARGET_DIRECTORY => build_dir
           ).perform
         end
 

@@ -4,7 +4,7 @@ require 'asciidoctor'
 
 module Avm
   module EacAsciidoctorBase0
-    module Sources
+    module Instances
       class Build
         class Document
           ROOT_BODY_TARGET_BASENAME = 'index'
