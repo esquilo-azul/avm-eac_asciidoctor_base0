@@ -19,7 +19,7 @@ module Avm
         SOURCE_EXTNAMES = %w[.adoc .asc].freeze
 
         def perform
-          infov 'Files to build', root_document.tree_documents_count
+          infov 'Documents to build', root_document.tree_documents_count
           target_directory.clear
           root_document.perform
         end
