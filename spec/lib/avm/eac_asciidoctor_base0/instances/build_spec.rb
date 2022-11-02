@@ -34,6 +34,10 @@ require 'eac_fs/comparator'
         main_document,
         target_dir.join(::Avm::EacAsciidoctorBase0::Sources::Base::CONTENT_DOCUMENT_BASENAME)
       )
+      ::FileUtils.cp(
+        source.root_document.title_path,
+        target_dir.join(::Avm::EacAsciidoctorBase0::Sources::Base::Document::TITLE_BASENAME)
+      )
     end
     instance.perform
   end

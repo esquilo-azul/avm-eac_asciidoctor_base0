@@ -13,7 +13,7 @@ module Avm
             enable_simple_cache
             common_constructor :document
 
-            delegate :build, to: :document
+            delegate :build, :source_document, to: :document
             delegate :instance, to: :build
             delegate :author_email, :author_name, to: :instance
 
@@ -48,7 +48,12 @@ module Avm
             end
 
             def result_lines
-              [author_line] + attributes_lines
+              [title_line, author_line] + attributes_lines
+            end
+
+            # @return [String]
+            def title_line
+              "= #{source_document.title}"
             end
 
             def website
