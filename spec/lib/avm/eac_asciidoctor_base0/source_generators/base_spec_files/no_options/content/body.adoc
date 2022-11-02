@@ -1,5 +1,9 @@
 //#header
 
+== Child Documents
+
+//#child_docs
+
 == First Section
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sapien.
