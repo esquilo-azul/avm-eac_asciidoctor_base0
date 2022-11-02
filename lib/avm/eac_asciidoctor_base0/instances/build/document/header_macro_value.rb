@@ -43,11 +43,8 @@ module Avm
               "#{author_name} <#{author_email}>"
             end
 
+            # @return [Array<String>]
             def result
-              result_lines.join("\n")
-            end
-
-            def result_lines
               [stylesheet_line, title_line, author_line] + attributes_lines
             end
 

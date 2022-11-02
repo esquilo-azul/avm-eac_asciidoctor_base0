@@ -33,8 +33,9 @@ module Avm
               MACRO_PARSER
             end
 
+            # @return [String]
             def macro_value
-              document.send("#{macro_name}_macro_value")
+              document.send("#{macro_name}_macro_value").join("\n")
             end
 
             private
