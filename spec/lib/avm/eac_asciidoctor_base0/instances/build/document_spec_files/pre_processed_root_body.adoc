@@ -1,4 +1,4 @@
-= EacAsciidoctorBase0 Generated Source =
+= EacAsciidoctorBase0 Generated Source
 The Author <theauthor@example.net>
 :Author Initials: T.A.
 :toc: left
