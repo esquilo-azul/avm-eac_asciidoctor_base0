@@ -10,7 +10,7 @@ module Avm
       class Deploy < ::Avm::EacWebappBase0::Instances::Deploy
         def build_content
           ::Avm::EacAsciidoctorBase0::Instances::Build.new(
-            project,
+            instance,
             ::Avm::EacAsciidoctorBase0::Instances::Build::OPTION_TARGET_DIRECTORY => build_dir
           ).perform
         end
