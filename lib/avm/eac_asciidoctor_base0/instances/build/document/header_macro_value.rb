@@ -48,7 +48,18 @@ module Avm
             end
 
             def result_lines
-              [title_line, author_line] + attributes_lines
+              [stylesheet_line, title_line, author_line] + attributes_lines
+            end
+
+            # @return [String]
+            def stylesheet_line
+              attribute_line('stylesheet', stylesheet_path)
+            end
+
+            # @return [Pathname]
+            def stylesheet_path
+              source_document.source.theme_stylesheet_path
+                             .relative_path_from(document.convert_base_dir)
             end
 
             # @return [String]
