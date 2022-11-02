@@ -1,2 +1,2 @@
-./build/
-!./build/.clearable_directory
+/build/
+!/build/.clearable_directory
