@@ -17,9 +17,10 @@ module Avm
 
             common_constructor :document, :line
 
+            # @return [String]
             def result
               if macro?
-                macro_value
+                macro_value.join("\n")
               else
                 line
               end
@@ -33,9 +34,9 @@ module Avm
               MACRO_PARSER
             end
 
-            # @return [String]
+            # @return [Array<String>]
             def macro_value
-              document.send("#{macro_name}_macro_value").join("\n")
+              document.send("#{macro_name}_macro_value")
             end
 
             private
