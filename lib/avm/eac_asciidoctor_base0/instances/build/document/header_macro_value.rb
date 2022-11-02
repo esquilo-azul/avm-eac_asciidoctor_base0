@@ -22,10 +22,13 @@ module Avm
             ICONS = ''
             NUMBERED = ''
 
+            # @return [String]
+            def attribute_line(name, value)
+              [":#{name}:", value].reject(&:blank?).join(' ')
+            end
+
             def attributes_lines
-              ATTRIBUTES.map do |attr|
-                [":#{attr}:", attribute_value(attr)].reject(&:blank?).join(' ')
-              end
+              ATTRIBUTES.map { |attr| attribute_line(attr, attribute_value(attr)) }
             end
 
             def attribute_value(attr)
