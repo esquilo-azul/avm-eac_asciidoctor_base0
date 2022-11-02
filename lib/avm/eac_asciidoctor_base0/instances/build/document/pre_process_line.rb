@@ -17,12 +17,12 @@ module Avm
 
             common_constructor :document, :line
 
-            # @return [String]
+            # @return [Array<String>]
             def result
               if macro?
-                macro_value.join("\n")
+                macro_value
               else
-                line
+                [line]
               end
             end
 

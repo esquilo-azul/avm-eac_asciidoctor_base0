@@ -51,7 +51,7 @@ module Avm
           # @return [String]
           def pre_processed_body_source_content
             source_document.body_path.read.each_line
-                           .map { |line| pre_process_line(line.rstrip) + "\n" }.join
+                           .map { |line| pre_process_line(line.rstrip).join("\n") + "\n" }.join
           end
 
           def tree_documents_count
