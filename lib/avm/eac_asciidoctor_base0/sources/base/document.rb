@@ -10,6 +10,7 @@ module Avm
         class Document
           enable_simple_cache
           enable_speaker
+          require_sub __FILE__, include_modules: true
           common_constructor :source, :parent_document, :basename
 
           # Absolute path to the Asciidoctor file.
