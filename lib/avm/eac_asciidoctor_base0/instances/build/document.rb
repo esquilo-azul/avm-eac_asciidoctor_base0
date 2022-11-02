@@ -36,7 +36,7 @@ module Avm
           end
 
           def perform_self
-            infov 'Building', source_document.root_path
+            infov 'Building', source_document.subpath
             ::Asciidoctor.convert(
               pre_processed_body_source_content,
               base_dir: convert_base_dir,
