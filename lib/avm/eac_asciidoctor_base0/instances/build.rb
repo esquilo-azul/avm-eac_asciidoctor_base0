@@ -13,7 +13,6 @@ module Avm
         enable_listable
         lists.add_symbol :option, :target_directory
         common_constructor :instance, :options, default: [{}] do
-          instance.assert_argument(::Avm::EacAsciidoctorBase0::Instances::Base, 'instance')
           self.options = self.class.lists.option.hash_keys_validate!(options.symbolize_keys)
         end
 
