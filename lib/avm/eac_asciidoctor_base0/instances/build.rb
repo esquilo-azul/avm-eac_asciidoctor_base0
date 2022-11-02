@@ -29,7 +29,8 @@ module Avm
         end
 
         def root_document
-          ::Avm::EacAsciidoctorBase0::Instances::Build::Document.new(self, nil, nil)
+          ::Avm::EacAsciidoctorBase0::Instances::Build::Document
+            .new(self, nil, source.root_document)
         end
 
         # @return [Avm::EacAsciidoctorBase0::Sources::Base]
