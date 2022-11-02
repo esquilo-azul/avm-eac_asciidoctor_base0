@@ -18,6 +18,11 @@ module Avm
           path.join(CONTENT_DIRECTORY_SUBPATH)
         end
 
+        # @return [Avm::EacAsciidoctorBase0::Sources::Base::InstanceToBuild]
+        def instance_to_build
+          ::Avm::EacAsciidoctorBase0::Sources::Base::InstanceToBuild.new(self)
+        end
+
         # @return [Avm::EacAsciidoctorBase0::Sources::Base::Document
         def root_document
           ::Avm::EacAsciidoctorBase0::Sources::Base::Document.new(self, nil, nil)
