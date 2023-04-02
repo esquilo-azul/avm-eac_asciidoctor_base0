@@ -1,5 +1,3 @@
-//#header
-
 == Child Documents
 
 //#child_docs
