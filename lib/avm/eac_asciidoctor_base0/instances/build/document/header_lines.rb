@@ -7,7 +7,7 @@ module Avm
     module Instances
       class Build
         class Document
-          class HeaderMacroValue
+          class HeaderLines
             enable_method_class
             enable_settings_provider
             enable_simple_cache

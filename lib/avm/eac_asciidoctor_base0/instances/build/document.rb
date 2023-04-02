@@ -51,7 +51,7 @@ module Avm
           # @return [String]
           def pre_processed_body_source_content
             (
-              header_macro_value + [''] + source_document.body_path.read.each_line
+              header_lines + [''] + source_document.body_path.read.each_line
                                .flat_map { |line| pre_process_line(line.rstrip) }
             ).map { |line| "#{line.rstrip}\n" }.join
           end
