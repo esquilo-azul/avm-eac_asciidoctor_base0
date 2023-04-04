@@ -25,6 +25,15 @@ module Avm
             ).basename_sub('.*') { |b| "#{b}.html" }
           end
 
+          # @return [Asciidoctor::Document]
+          def build_body
+            ::Asciidoctor.convert(
+              pre_processed_body_source_content,
+              base_dir: convert_base_dir,
+              to_file: body_target_path.to_path, safe: :unsafe, mkdirs: true
+            )
+          end
+
           # @return [Pathname]
           def convert_base_dir
             source_document.root_path
@@ -37,11 +46,7 @@ module Avm
 
           def perform_self
             infov 'Building', source_document.subpath
-            ::Asciidoctor.convert(
-              pre_processed_body_source_content,
-              base_dir: convert_base_dir,
-              to_file: body_target_path.to_path, safe: :unsafe, mkdirs: true
-            )
+            build_body
           end
 
           def perform_children
