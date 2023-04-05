@@ -8,7 +8,7 @@ module Avm
     module Instances
       class Build
         class Document
-          require_sub __FILE__
+          require_sub __FILE__, include_modules: true
 
           BODY_TARGET_BASENAME = 'index.html'
 
@@ -45,6 +45,7 @@ module Avm
           def perform_self
             infov 'Building', source_document.subpath
             build_body
+            copy_media_directory
           end
 
           def perform_children
