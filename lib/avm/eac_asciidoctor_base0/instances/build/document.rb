@@ -10,7 +10,7 @@ module Avm
         class Document
           require_sub __FILE__
 
-          ROOT_BODY_TARGET_BASENAME = 'index'
+          BODY_TARGET_BASENAME = 'index.html'
 
           enable_simple_cache
           enable_speaker
@@ -20,9 +20,7 @@ module Avm
           #
           # @return [Pathname]
           def body_target_path
-            build.target_directory.join(
-              parent_document.present? ? source_document.subpath : ROOT_BODY_TARGET_BASENAME
-            ).basename_sub('.*') { |b| "#{b}.html" }
+            build.target_directory.join(source_document.subpath).join(BODY_TARGET_BASENAME)
           end
 
           # @return [Asciidoctor::Document]
