@@ -43,9 +43,15 @@ module Avm
               "#{author_name} <#{author_email}>"
             end
 
+            # @return [String]
+            def breadcrumbs_lines
+              ['[.normal]', document.breadcrumbs_macro_value]
+            end
+
             # @return [Array<String>]
             def result
-              [stylesheet_line, title_line, author_line] + attributes_lines
+              [stylesheet_line, title_line, author_line] + attributes_lines + [''] +
+                breadcrumbs_lines
             end
 
             # @return [String]

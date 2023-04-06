@@ -7,6 +7,9 @@ The Author <theauthor@example.net>
 :numbered:
 :website: https://www.example.net
 
+[.normal]
+link:../../../index.html[Home] » link:../../index.html[c1] » link:../index.html[c1_1] » link:index.html[c1_1_1]
+
 == Child Documents
 
 * link:c1_1_1_1/index.html[c1_1_1_1]
