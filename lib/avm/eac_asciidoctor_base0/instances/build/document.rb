@@ -39,6 +39,12 @@ module Avm
             children.find { |c| c.source_document.root_path.basename.to_path == basename }
           end
 
+          # @param basename [String]
+          # @return [Avm::EacAsciidoctorBase0::Instances::Build::Document]
+          def child!(basename)
+            child(basename) || raise("Child not found with basename \"#{basename}\"")
+          end
+
           # @return [Pathname]
           def convert_base_dir
             source_document.root_path
