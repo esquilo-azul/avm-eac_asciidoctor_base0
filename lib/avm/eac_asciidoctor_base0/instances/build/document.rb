@@ -16,6 +16,12 @@ module Avm
           enable_speaker
           common_constructor :build, :parent_document, :source_document
 
+          # @param other [Avm::EacAsciidoctorBase0::Instances::Build::Document]
+          # @return [String]
+          def href_to_other_body(other)
+            other.body_target_path.relative_path_from(body_target_path.dirname)
+          end
+
           # Absolute path to the output of Asciidoctor's source file.
           #
           # @return [Pathname]
@@ -69,7 +75,7 @@ module Avm
           def pre_processed_body_source_content
             (
               header_lines + [''] + source_document.body_path.read.each_line
-                               .flat_map { |line| pre_process_line(line.rstrip) }
+              .flat_map { |line| pre_process_line(line.rstrip) }
             ).map { |line| "#{line.rstrip}\n" }.join
           end
 

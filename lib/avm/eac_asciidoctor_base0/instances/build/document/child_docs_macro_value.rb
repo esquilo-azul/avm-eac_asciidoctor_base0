@@ -23,9 +23,7 @@ module Avm
 
               # @return [Pathname]
               def address
-                child.body_target_path.relative_path_from(
-                  document.body_target_path.dirname
-                )
+                document.href_to_other_body(child)
               end
 
               # @return [String]
