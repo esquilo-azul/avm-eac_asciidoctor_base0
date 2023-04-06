@@ -1,5 +1,5 @@
-:stylesheet: ../theme/main.css
-= EacAsciidoctorBase0 Generated Source
+:stylesheet: ../../../../theme/main.css
+= c1_1_1
 The Author <theauthor@example.net>
 :Author Initials: T.A.
 :toc: left
@@ -9,6 +9,8 @@ The Author <theauthor@example.net>
 
 == Child Documents
 
+* link:c1_1_1_1/index.html[c1_1_1_1]
+* link:c1_1_1_2/index.html[c1_1_1_2]
 
 == First Section
 
