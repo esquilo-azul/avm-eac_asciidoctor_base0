@@ -32,6 +32,13 @@ module Avm
             )
           end
 
+          # @param basename [String]
+          # @return [Avm::EacAsciidoctorBase0::Instances::Build::Document, nil]
+          def child(basename)
+            basename = basename.to_s
+            children.find { |c| c.source_document.root_path.basename.to_path == basename }
+          end
+
           # @return [Pathname]
           def convert_base_dir
             source_document.root_path
