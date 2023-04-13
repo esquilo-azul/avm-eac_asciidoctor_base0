@@ -9,7 +9,6 @@ module Avm
   module EacAsciidoctorBase0
     module Instances
       class Base < ::Avm::EacWebappBase0::Instances::Base
-        FILES_UNITS = {}.freeze
         AUTHOR_EMAIL_ENTRY_PATH = 'install.email'
         AUTHOR_NAME_ENTRY_PATH = 'install.name'
         AUTHOR_NAME_INITIALS_ENTRY_PATH = 'install.name_initials'
