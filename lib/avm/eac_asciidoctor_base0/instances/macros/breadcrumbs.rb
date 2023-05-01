@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
+require 'avm/eac_asciidoctor_base0/instances/macros/base'
 require 'eac_ruby_utils/core_ext'
 
 module Avm
   module EacAsciidoctorBase0
     module Instances
       module Macros
-        class Breadcrumbs
-          common_constructor :document
-
+        class Breadcrumbs < ::Avm::EacAsciidoctorBase0::Instances::Macros::Base
           NODE_SEPARATOR = ' » '
           ROOT_DOCUMENT_TITLE = 'Home'
 

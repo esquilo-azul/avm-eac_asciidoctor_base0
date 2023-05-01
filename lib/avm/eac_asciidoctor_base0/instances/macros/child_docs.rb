@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
+require 'avm/eac_asciidoctor_base0/instances/macros/base'
 require 'eac_ruby_utils/core_ext'
 
 module Avm
   module EacAsciidoctorBase0
     module Instances
       module Macros
-        class ChildDocs
-          common_constructor :document
-
+        class ChildDocs < ::Avm::EacAsciidoctorBase0::Instances::Macros::Base
           # @return [Array<String>]
           def result
             document.children.map { |child_doc| ChildDocLine.new(document, child_doc) }.sort
