@@ -2,6 +2,7 @@
 
 require 'asciidoctor'
 require 'eac_ruby_utils/core_ext'
+require 'avm/eac_asciidoctor_base0/instances/macros/breadcrumbs'
 
 module Avm
   module EacAsciidoctorBase0
@@ -20,6 +21,11 @@ module Avm
           # @return [String]
           def href_to_other_body(other)
             other.body_target_path.relative_path_from(body_target_path.dirname)
+          end
+
+          # @return [String]
+          def breadcrumbs_macro_value
+            ::Avm::EacAsciidoctorBase0::Instances::Macros::Breadcrumbs.new(self).result
           end
 
           # Absolute path to the output of Asciidoctor's source file.
