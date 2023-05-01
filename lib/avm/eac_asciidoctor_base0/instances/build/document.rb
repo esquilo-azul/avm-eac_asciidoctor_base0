@@ -59,9 +59,9 @@ module Avm
 
           # @param name [String]
           # @return [Array<String>]
-          def macro_lines(name)
+          def macro_lines(name, arguments = [])
             ::Avm::EacAsciidoctorBase0::Instances::Macros.const_get(name.to_s.camelize)
-                                                         .new(self).result
+                                                         .new(self, arguments).result
           end
 
           def perform
