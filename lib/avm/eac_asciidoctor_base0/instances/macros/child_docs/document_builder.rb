@@ -22,6 +22,11 @@ module Avm
               document.children.map { |c| self.class.new(child_docs, c, depth + 1) }.sort
             end
 
+            # @return [Boolean]
+            def lines_for_children?
+              child_docs.maximum_depth.negative? || child_docs.maximum_depth <= depth
+            end
+
             # @return [String]
             def link
               "link:#{address}[#{title}]"
@@ -30,7 +35,9 @@ module Avm
             # @return [Array<String>]
             def result
               children.flat_map do |child|
-                [child.self_line] + child.result
+                r = [child.self_line]
+                r += child.result if lines_for_children?
+                r
               end
             end
 
