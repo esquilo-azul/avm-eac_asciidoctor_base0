@@ -11,8 +11,10 @@ module Avm
             enable_method_class
             enable_simple_cache
 
-            MACRO_PARSER = %r{\A\s*//\#(\S+.*)}.to_parser do |m|
-              ::Struct.new(:name).new(m[1])
+            ARGUMENT_SEPARATOR = ','
+            MACRO_PARSER = %r{\A\s*//\#(\S+)(?:\s+(.+))?\s*?\z}.to_parser do |m|
+              ::Struct.new(:name, :arguments).new(m[1],
+                                                  m[2].to_s.split(ARGUMENT_SEPARATOR).map(&:strip))
             end
 
             common_constructor :document, :line
@@ -30,6 +32,11 @@ module Avm
               macro_name.present?
             end
 
+            # @return [Array<String>, nil]
+            def macro_arguments
+              parsed_macro.if_present(&:arguments)
+            end
+
             # @return [String, nil]
             def macro_name
               parsed_macro.if_present(&:name)
@@ -41,7 +48,7 @@ module Avm
 
             # @return [Array<String>]
             def macro_value
-              document.macro_lines(macro_name)
+              document.macro_lines(macro_name, macro_arguments)
             end
 
             private
