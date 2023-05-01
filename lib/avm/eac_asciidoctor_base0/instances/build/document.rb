@@ -23,6 +23,11 @@ module Avm
             other.body_target_path.relative_path_from(body_target_path.dirname)
           end
 
+          # @return [Enumerable<String>]
+          def body_source_lines
+            source_document.body_path.read.each_line
+          end
+
           # Absolute path to the output of Asciidoctor's source file.
           #
           # @return [Pathname]
@@ -82,7 +87,7 @@ module Avm
           # @return [String]
           def pre_processed_body_source_content
             (
-              header_lines + [''] + source_document.body_path.read.each_line
+              header_lines + [''] + body_source_lines
               .flat_map { |line| pre_process_line(line.rstrip) }
             ).map { |line| "#{line.rstrip}\n" }.join
           end
