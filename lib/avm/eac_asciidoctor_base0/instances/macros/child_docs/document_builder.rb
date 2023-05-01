@@ -9,12 +9,12 @@ module Avm
       module Macros
         class ChildDocs < ::Avm::EacAsciidoctorBase0::Instances::Macros::Base
           class DocumentBuilder
-            common_constructor :root_document, :child
+            common_constructor :root_document, :document
             compare_by :title, :address
 
             # @return [Pathname]
             def address
-              root_document.href_to_other_body(child)
+              root_document.href_to_other_body(document)
             end
 
             # @return [String]
@@ -29,7 +29,7 @@ module Avm
 
             # @return [String]
             def title
-              child.source_document.title
+              document.source_document.title
             end
           end
         end
