@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 require 'asciidoctor'
+require 'avm/eac_asciidoctor_base0/instances/macros'
 require 'eac_ruby_utils/core_ext'
-require 'avm/eac_asciidoctor_base0/instances/macros/breadcrumbs'
-require 'avm/eac_asciidoctor_base0/instances/macros/child_docs'
 
 module Avm
   module EacAsciidoctorBase0
@@ -22,16 +21,6 @@ module Avm
           # @return [String]
           def href_to_other_body(other)
             other.body_target_path.relative_path_from(body_target_path.dirname)
-          end
-
-          # @return [String]
-          def breadcrumbs_macro_value
-            ::Avm::EacAsciidoctorBase0::Instances::Macros::Breadcrumbs.new(self).result
-          end
-
-          # @return [String]
-          def child_docs_macro_value
-            ::Avm::EacAsciidoctorBase0::Instances::Macros::ChildDocs.new(self).result
           end
 
           # Absolute path to the output of Asciidoctor's source file.
@@ -71,7 +60,8 @@ module Avm
           # @param name [String]
           # @return [Array<String>]
           def macro_lines(name)
-            send("#{name}_macro_value")
+            ::Avm::EacAsciidoctorBase0::Instances::Macros.const_get(name.to_s.camelize)
+                                                         .new(self).result
           end
 
           def perform

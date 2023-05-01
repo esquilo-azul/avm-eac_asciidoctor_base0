@@ -45,7 +45,7 @@ module Avm
 
             # @return [String]
             def breadcrumbs_lines
-              ['[.normal]', document.breadcrumbs_macro_value]
+              ['[.normal]', document.macro_lines(:breadcrumbs)]
             end
 
             # @return [Array<String>]
