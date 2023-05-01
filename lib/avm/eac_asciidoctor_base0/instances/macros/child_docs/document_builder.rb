@@ -24,6 +24,11 @@ module Avm
 
             # @return [String]
             def result
+              self_line
+            end
+
+            # @return [String]
+            def self_line
               "* #{link}"
             end
 
