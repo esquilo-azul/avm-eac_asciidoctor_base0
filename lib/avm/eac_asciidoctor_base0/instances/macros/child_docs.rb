@@ -10,9 +10,7 @@ module Avm
         class ChildDocs < ::Avm::EacAsciidoctorBase0::Instances::Macros::Base
           # @return [Array<String>]
           def result
-            document.children
-                    .map { |child_doc| document_builder_class.new(document, child_doc) }.sort
-                    .flat_map(&:result)
+            document_builder_class.new(document, document).result
           end
 
           private

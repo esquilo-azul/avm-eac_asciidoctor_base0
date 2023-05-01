@@ -17,6 +17,11 @@ module Avm
               root_document.href_to_other_body(document)
             end
 
+            # @return [Array] Document's children mapped to document builders.
+            def children
+              document.children.map { |c| self.class.new(root_document, c) }.sort
+            end
+
             # @return [String]
             def link
               "link:#{address}[#{title}]"
@@ -24,7 +29,7 @@ module Avm
 
             # @return [Array<String>]
             def result
-              [self_line]
+              children.map(&:self_line)
             end
 
             # @return [String]
