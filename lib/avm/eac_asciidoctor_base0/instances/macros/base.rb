@@ -8,7 +8,7 @@ module Avm
       module Macros
         class Base
           enable_abstract_methods
-          common_constructor :document
+          common_constructor :document, :arguments, default: [[]]
 
           # @return [Array<String>]
           def result
