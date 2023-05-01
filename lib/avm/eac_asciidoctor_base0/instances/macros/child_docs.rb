@@ -10,34 +10,19 @@ module Avm
         class ChildDocs < ::Avm::EacAsciidoctorBase0::Instances::Macros::Base
           # @return [Array<String>]
           def result
-            document.children.map { |child_doc| ChildDocLine.new(document, child_doc) }.sort
+            document.children
+                    .map { |child_doc| document_builder_class.new(document, child_doc) }.sort
                     .map(&:result)
           end
 
-          class ChildDocLine
-            common_constructor :document, :child
-            compare_by :title, :address
+          private
 
-            # @return [Pathname]
-            def address
-              document.href_to_other_body(child)
-            end
-
-            # @return [String]
-            def link
-              "link:#{address}[#{title}]"
-            end
-
-            # @return [String]
-            def result
-              "* #{link}"
-            end
-
-            # @return [String]
-            def title
-              child.source_document.title
-            end
+          # @return [Class]
+          def document_builder_class
+            ::Avm::EacAsciidoctorBase0::Instances::Macros::ChildDocs::DocumentBuilder
           end
+
+          require_sub __FILE__
         end
       end
     end
