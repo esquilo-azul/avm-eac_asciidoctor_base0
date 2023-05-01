@@ -25,7 +25,11 @@ module Avm
 
           # @return [Enumerable<String>]
           def body_source_lines
-            source_document.body_path.read.each_line
+            if source_document.body_path.file?
+              source_document.body_path.read.each_line
+            else
+              default_body_source_lines
+            end
           end
 
           # Absolute path to the output of Asciidoctor's source file.
@@ -60,6 +64,11 @@ module Avm
           # @return [Pathname]
           def convert_base_dir
             source_document.root_path
+          end
+
+          # @return [Enumerable<String>]
+          def default_body_source_lines
+            macro_lines(:default_body)
           end
 
           # @param name [String]
