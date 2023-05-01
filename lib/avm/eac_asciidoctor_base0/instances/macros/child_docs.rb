@@ -12,7 +12,7 @@ module Avm
           def result
             document.children
                     .map { |child_doc| document_builder_class.new(document, child_doc) }.sort
-                    .map(&:result)
+                    .flat_map(&:result)
           end
 
           private

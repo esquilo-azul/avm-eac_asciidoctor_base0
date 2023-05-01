@@ -22,9 +22,9 @@ module Avm
               "link:#{address}[#{title}]"
             end
 
-            # @return [String]
+            # @return [Array<String>]
             def result
-              self_line
+              [self_line]
             end
 
             # @return [String]
