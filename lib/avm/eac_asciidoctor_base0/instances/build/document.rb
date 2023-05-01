@@ -68,6 +68,12 @@ module Avm
             source_document.root_path
           end
 
+          # @param name [String]
+          # @return [Array<String>]
+          def macro_lines(name)
+            send("#{name}_macro_value")
+          end
+
           def perform
             perform_self
             perform_children

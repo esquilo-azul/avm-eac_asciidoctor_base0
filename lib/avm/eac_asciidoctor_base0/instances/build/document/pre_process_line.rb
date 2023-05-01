@@ -36,7 +36,7 @@ module Avm
 
             # @return [Array<String>]
             def macro_value
-              document.send("#{macro_name}_macro_value")
+              document.macro_lines(macro_name)
             end
 
             private
