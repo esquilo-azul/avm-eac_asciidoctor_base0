@@ -9,7 +9,7 @@ module Avm
       module Macros
         class ChildDocs < ::Avm::EacAsciidoctorBase0::Instances::Macros::Base
           class DocumentBuilder
-            common_constructor :root_document, :document, :depth, default: [0]
+            common_constructor :child_docs, :document, :depth, default: [0]
             compare_by :title, :address
 
             # @return [Pathname]
@@ -19,7 +19,7 @@ module Avm
 
             # @return [Array] Document's children mapped to document builders.
             def children
-              document.children.map { |c| self.class.new(root_document, c, depth + 1) }.sort
+              document.children.map { |c| self.class.new(child_docs, c, depth + 1) }.sort
             end
 
             # @return [String]
@@ -30,6 +30,11 @@ module Avm
             # @return [Array<String>]
             def result
               children.map(&:self_line)
+            end
+
+            # @return [Avm::EacAsciidoctorBase0::Instances::Build::Document]
+            def root_document
+              child_docs.document
             end
 
             # @return [String]

@@ -10,7 +10,7 @@ module Avm
         class ChildDocs < ::Avm::EacAsciidoctorBase0::Instances::Macros::Base
           # @return [Array<String>]
           def result
-            document_builder_class.new(document, document).result
+            document_builder_class.new(self, document).result
           end
 
           private
