@@ -29,7 +29,9 @@ module Avm
 
             # @return [Array<String>]
             def result
-              children.map(&:self_line)
+              children.flat_map do |child|
+                [child.self_line] + child.result
+              end
             end
 
             # @return [Avm::EacAsciidoctorBase0::Instances::Build::Document]
