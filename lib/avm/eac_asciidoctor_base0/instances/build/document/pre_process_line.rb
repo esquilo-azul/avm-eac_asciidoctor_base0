@@ -12,7 +12,7 @@ module Avm
             enable_simple_cache
 
             MACRO_PARSER = %r{\A\s*//\#(\S+.*)}.to_parser do |m|
-              m[1]
+              ::Struct.new(:name).new(m[1])
             end
 
             common_constructor :document, :line
@@ -30,6 +30,11 @@ module Avm
               macro_name.present?
             end
 
+            # @return [String, nil]
+            def macro_name
+              parsed_macro.if_present(&:name)
+            end
+
             def macro_parser
               MACRO_PARSER
             end
@@ -41,7 +46,7 @@ module Avm
 
             private
 
-            def macro_name_uncached
+            def parsed_macro_uncached
               macro_parser.parse(line)
             end
           end
