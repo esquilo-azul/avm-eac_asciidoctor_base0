@@ -40,20 +40,20 @@ RSpec.describe Avm::EacAsciidoctorBase0::Instances::Build::Document do
     expect(instance.pre_processed_body_source_content).to eq(target_file.read)
   end
 
-  # @return [Avm::EacAsciidoctorBase0::Sources::Base::Document]
+  # @return [Avm::EacAsciidoctorBase0::Sources::Document]
   def copy_template_doc(parent, basename)
-    parent.assert_argument(Avm::EacAsciidoctorBase0::Sources::Base::Document, 'parent')
+    parent.assert_argument(Avm::EacAsciidoctorBase0::Sources::Document, 'parent')
 
     root_target = parent.root_path.join(basename.to_s)
     FileUtils.copy_entry(doc_template, root_target)
     root_target.join('title').write(root_target.basename.to_path)
-    Avm::EacAsciidoctorBase0::Sources::Base::Document.new(parent.source, parent,
-                                                          root_target.basename)
+    Avm::EacAsciidoctorBase0::Sources::Document.new(parent.source, parent,
+                                                    root_target.basename)
   end
 
-  # @return [Array<Avm::EacAsciidoctorBase0::Sources::Base::Document>]
+  # @return [Array<Avm::EacAsciidoctorBase0::Sources::Document>]
   def copy_template_hash(parent, hash)
-    parent.assert_argument(Avm::EacAsciidoctorBase0::Sources::Base::Document, 'parent')
+    parent.assert_argument(Avm::EacAsciidoctorBase0::Sources::Document, 'parent')
     hash.assert_argument(Hash, 'hash')
 
     hash.map do |k, v|

@@ -17,7 +17,7 @@ module Avm
             def media_target_path
               build.target_directory.join(
                 parent_document.present? ? source_document.subpath : '',
-                ::Avm::EacAsciidoctorBase0::Sources::Base::Document::Media::MEDIA_DIRECTORY_BASENAME
+                ::Avm::EacAsciidoctorBase0::Sources::Document::Media::MEDIA_DIRECTORY_BASENAME
               )
             end
           end
