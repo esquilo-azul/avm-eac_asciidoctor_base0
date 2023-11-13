@@ -2,7 +2,7 @@
 
 require 'avm/eac_asciidoctor_base0/instances/build'
 
-::RSpec.describe ::Avm::EacAsciidoctorBase0::Instances::Build::Document do # rubocop:disable Metrics/BlockLength
+::RSpec.describe ::Avm::EacAsciidoctorBase0::Instances::Build::Document do
   let(:app_director) { eac_asciidoctor_base0_stubs }
   let(:build) { ::Avm::EacAsciidoctorBase0::Instances::Build.new(app_director.instance) }
   let(:fixtures_dir) { __dir__.to_pathname.join('document_spec_files') }
