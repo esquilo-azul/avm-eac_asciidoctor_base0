@@ -75,7 +75,7 @@ module Avm
           # @return [Array<String>]
           def macro_lines(name, arguments = [])
             ::Avm::EacAsciidoctorBase0::Instances::Macros.const_get(name.to_s.camelize)
-                                                         .new(self, arguments).result
+              .new(self, arguments).result
           end
 
           def perform
@@ -109,7 +109,7 @@ module Avm
 
           def children_uncached
             source_document.children
-                           .map { |source_child| self.class.new(build, self, source_child) }
+              .map { |source_child| self.class.new(build, self, source_child) }
           end
         end
       end

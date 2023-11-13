@@ -38,8 +38,8 @@ module Avm
 
           def children_uncached
             root_path.children.select(&:directory?)
-                     .reject { |path| path.basename.to_path == MEDIA_DIRECTORY_BASENAME }
-                     .map { |path| self.class.new(source, self, path.basename) }
+              .reject { |path| path.basename.to_path == MEDIA_DIRECTORY_BASENAME }
+              .map { |path| self.class.new(source, self, path.basename) }
           end
         end
       end

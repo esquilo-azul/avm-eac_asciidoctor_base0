@@ -62,7 +62,7 @@ module Avm
             # @return [Pathname]
             def stylesheet_path
               source_document.source.theme_stylesheet_path
-                             .relative_path_from(document.convert_base_dir)
+                .relative_path_from(document.convert_base_dir)
             end
 
             # @return [String]
