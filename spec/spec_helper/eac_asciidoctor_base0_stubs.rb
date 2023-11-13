@@ -52,4 +52,4 @@ module EacAsciidoctorBase0Stubs
   end
 end
 
-::EacRubyUtils::Rspec.default_setup.rspec_config.include(::EacAsciidoctorBase0Stubs)
+EacRubyUtils::Rspec.default_setup.rspec_config.include(EacAsciidoctorBase0Stubs)
