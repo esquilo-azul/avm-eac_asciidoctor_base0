@@ -24,7 +24,7 @@ module Avm
 
             # @return [String]
             def attribute_line(name, value)
-              [":#{name}:", value].reject(&:blank?).join(' ')
+              [":#{name}:", value].compact_blank.join(' ')
             end
 
             def attributes_lines
