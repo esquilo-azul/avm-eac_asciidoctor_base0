@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{lib,template}/**/*']
 
-  s.add_dependency 'asciidoctor', '~> 2.0', '>= 2.0.18'
+  s.add_dependency 'asciidoctor', '~> 2.0', '>= 2.0.20'
   s.add_dependency 'avm-eac_webapp_base0', '~> 0.15'
   s.add_dependency 'eac_ruby_utils', '~> 0.112'
   s.add_dependency 'os', '~> 1.1', '>= 1.1.4'
