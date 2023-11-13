@@ -6,7 +6,7 @@ require 'avm/eac_asciidoctor_base0/instances/build'
   let(:app_director) { eac_asciidoctor_base0_stubs }
   let(:build) { ::Avm::EacAsciidoctorBase0::Instances::Build.new(app_director.instance) }
   let(:fixtures_dir) { __dir__.to_pathname.join('document_spec_files') }
-  let(:instance) { build_doc_child(build.root_document, :c1, :c1_1, :c1_1_1) }
+  let(:instance) { build_doc_child(build.root_document, :c1, :c1_1, :c1_1_1) } # rubocop:disable Naming/VariableNumber
   let(:target_file) { fixtures_dir.join('pre_processed_root_body.adoc') }
   let(:source) { app_director.source }
   let(:doc_template) do
@@ -19,19 +19,19 @@ require 'avm/eac_asciidoctor_base0/instances/build'
     copy_template_hash(
       source.root_document,
       c1: {
-        c1_1: {
-          c1_1_1: {
-            c1_1_1_1: {},
-            c1_1_1_2: {}
+        c1_1: { # rubocop:disable Naming/VariableNumber
+          c1_1_1: { # rubocop:disable Naming/VariableNumber
+            c1_1_1_1: {}, # rubocop:disable Naming/VariableNumber
+            c1_1_1_2: {} # rubocop:disable Naming/VariableNumber
           },
-          c1_1_2: {
-            c1_1_2_1: {},
-            c1_1_2_2: {}
+          c1_1_2: { # rubocop:disable Naming/VariableNumber
+            c1_1_2_1: {}, # rubocop:disable Naming/VariableNumber
+            c1_1_2_2: {} # rubocop:disable Naming/VariableNumber
           }
         }
       },
       c2: {
-        c2_1: {}
+        c2_1: {} # rubocop:disable Naming/VariableNumber
       }
     )
   end
