@@ -1,8 +1,6 @@
+---
 inherit_gem:
-  eac_ruby_gem_support: .rubocop.yml
-Gemspec/RequiredRubyVersion:
-  Exclude:
-  - avm-eac_asciidoctor_base0.gemspec
+  eac_ruby_gem_support: ".rubocop.yml"
 Layout/MultilineMethodCallIndentation:
   Exclude:
   - lib/avm/eac_asciidoctor_base0/instances/build/document/header_lines.rb
