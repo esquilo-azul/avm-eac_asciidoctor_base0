@@ -21,6 +21,11 @@ module Avm
           )
         end
 
+        # @return [Avm::EacAsciidoctorBase0::Instances::Build::Document]
+        def build_document
+          source.build.document(subpath)
+        end
+
         # Absolute path to the document's source root.
         #
         # @return [Pathname]
