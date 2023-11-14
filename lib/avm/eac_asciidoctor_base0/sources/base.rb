@@ -8,15 +8,13 @@ module Avm
   module EacAsciidoctorBase0
     module Sources
       class Base < ::Avm::EacWebappBase0::Sources::Base
-        require_sub __FILE__
+        require_sub __FILE__, include_modules: true
 
         CONTENT_DIRECTORY_SUBPATH = ::Pathname.new('content')
         CONTENT_DOCUMENT_BASENAME = ::Pathname.new('body.adoc')
         MAIN_FILE_SUBPATH = CONTENT_DIRECTORY_SUBPATH.join(
           ::Avm::EacAsciidoctorBase0::Sources::Base::Document::TITLE_BASENAME
         )
-
-        require_sub __FILE__, include_modules: true
 
         def content_directory
           path.join(CONTENT_DIRECTORY_SUBPATH)
