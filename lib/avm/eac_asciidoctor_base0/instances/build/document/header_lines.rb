@@ -17,10 +17,12 @@ module Avm
             delegate :instance, to: :build
             delegate :author_email, :author_name, to: :instance
 
-            ATTRIBUTES = ['Author Initials', 'toc', 'icons', 'numbered', 'website'].freeze
+            ATTRIBUTES = ['Author Initials', 'toc', 'icons', 'numbered', 'source-highlighter',
+                          'website'].freeze
             TOC = 'left'
             ICONS = ''
             NUMBERED = ''
+            SOURCE_HIGHLIGHTER = 'rouge'
 
             # @return [String]
             def attribute_line(name, value)

@@ -5,6 +5,7 @@ The Author <theauthor@example.net>
 :toc: left
 :icons:
 :numbered:
+:source-highlighter: rouge
 :website: https://www.example.net
 
 [.normal]
