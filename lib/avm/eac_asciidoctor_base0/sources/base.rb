@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'avm/eac_webapp_base0/sources/base'
+require 'avm/eac_asciidoctor_base0/documents_owner'
 require 'avm/eac_asciidoctor_base0/sources/runners'
 require 'eac_ruby_utils/core_ext'
 
@@ -9,6 +10,7 @@ module Avm
     module Sources
       class Base < ::Avm::EacWebappBase0::Sources::Base
         require_sub __FILE__, include_modules: true
+        include ::Avm::EacAsciidoctorBase0::DocumentsOwner
 
         CONTENT_DIRECTORY_SUBPATH = ::Pathname.new('content')
         CONTENT_DOCUMENT_BASENAME = ::Pathname.new('body.adoc')
