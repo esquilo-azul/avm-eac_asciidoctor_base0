@@ -38,6 +38,11 @@ module Avm
           parent_document.if_present('.'.to_pathname) { |pd| pd.subpath.join(basename) }
         end
 
+        # @return [String]
+        def to_s
+          subpath.to_path
+        end
+
         private
 
         def children_uncached
