@@ -16,6 +16,7 @@ module Avm
           enable_simple_cache
           enable_speaker
           common_constructor :build, :parent_document, :source_document
+          delegate :subpath, to: :source_document
 
           # @param other [Avm::EacAsciidoctorBase0::Instances::Build::Document]
           # @return [String]
