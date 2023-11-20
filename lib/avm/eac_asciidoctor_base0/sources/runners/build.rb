@@ -23,11 +23,9 @@ module Avm
 
           private
 
+          # @return [Avm::EacAsciidoctorBase0::Instances::Build]
           def build_uncached
-            ::Avm::EacAsciidoctorBase0::Instances::Build.new(
-              runner_context.call(:source).instance_to_build,
-              target_directory: parsed.target_dir
-            )
+            source.build(target_directory: parsed.target_dir)
           end
 
           def default_target_directory

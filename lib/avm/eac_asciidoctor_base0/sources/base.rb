@@ -2,6 +2,7 @@
 
 require 'avm/eac_webapp_base0/sources/base'
 require 'avm/eac_asciidoctor_base0/documents_owner'
+require 'avm/eac_asciidoctor_base0/instances/build'
 require 'avm/eac_asciidoctor_base0/sources/runners'
 require 'eac_ruby_utils/core_ext'
 
@@ -17,6 +18,12 @@ module Avm
         MAIN_FILE_SUBPATH = CONTENT_DIRECTORY_SUBPATH.join(
           ::Avm::EacAsciidoctorBase0::Sources::Base::Document::TITLE_BASENAME
         )
+
+        # @param options [Hash]
+        # @return [Avm::EacAsciidoctorBase0::Instances::Build]
+        def build(options = {})
+          ::Avm::EacAsciidoctorBase0::Instances::Build.new(instance_to_build, options)
+        end
 
         def content_directory
           path.join(CONTENT_DIRECTORY_SUBPATH)
