@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'avm/eac_asciidoctor_base0/documents_owner'
 require 'eac_ruby_utils/core_ext'
 require 'eac_ruby_utils/fs/clearable_directory'
 
@@ -8,6 +9,7 @@ module Avm
     module Instances
       class Build
         require_sub __FILE__
+        include ::Avm::EacAsciidoctorBase0::DocumentsOwner
         enable_speaker
         enable_simple_cache
         enable_listable
