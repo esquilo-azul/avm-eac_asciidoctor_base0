@@ -22,7 +22,7 @@ module Avm
             end
 
             # @return [Asciidoctor::Document]
-            def build_body
+            def body_target_write
               ::Asciidoctor.convert(
                 pre_processed_body_source_content,
                 base_dir: convert_base_dir,

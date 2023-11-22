@@ -68,7 +68,7 @@ module Avm
 
           def perform_self
             infov 'Building', source_document.subpath
-            build_body
+            body_target_write
             copy_media_directory
           end
 
