@@ -11,8 +11,6 @@ module Avm
         class Document
           require_sub __FILE__, include_modules: true
 
-          BODY_TARGET_BASENAME = 'index.html'
-
           enable_simple_cache
           enable_speaker
           common_constructor :build, :parent_document, :source_document
@@ -31,22 +29,6 @@ module Avm
             else
               default_body_source_lines
             end
-          end
-
-          # Absolute path to the output of Asciidoctor's source file.
-          #
-          # @return [Pathname]
-          def body_target_path
-            build.target_directory.join(source_document.subpath).join(BODY_TARGET_BASENAME)
-          end
-
-          # @return [Asciidoctor::Document]
-          def build_body
-            ::Asciidoctor.convert(
-              pre_processed_body_source_content,
-              base_dir: convert_base_dir,
-              to_file: body_target_path.to_path, safe: :unsafe, mkdirs: true
-            )
           end
 
           # @param basename [String]
