@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'asciidoctor', '~> 2.0', '>= 2.0.20'
   s.add_dependency 'avm-eac_webapp_base0', '~> 0.18', '>= 0.18.2'
-  s.add_dependency 'eac_ruby_utils', '~> 0.119', '>= 0.119.2'
+  s.add_dependency 'eac_ruby_utils', '~> 0.120'
   s.add_dependency 'os', '~> 1.1', '>= 1.1.4'
   s.add_dependency 'rouge', '~> 3.30'
 
