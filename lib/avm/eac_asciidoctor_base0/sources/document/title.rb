@@ -11,8 +11,13 @@ module Avm
           TITLE_BASENAME = 'title'
 
           # @return [String]
+          def default_title
+            root_path.basename.to_s.humanize.split(/\s+/).map(&:upcase_first).join(' ')
+          end
+
+          # @return [String]
           def title
-            title_path.read.strip
+            title_path.exist? ? title_path.read.strip : default_title
           end
 
           # @return [Pathname]
