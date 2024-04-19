@@ -23,6 +23,7 @@ module Avm
         def perform
           infov 'Documents to build', root_document.tree_documents_count
           target_directory.clear
+          theme.perform
           root_document.perform
         end
 
