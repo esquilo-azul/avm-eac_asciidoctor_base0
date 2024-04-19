@@ -45,6 +45,13 @@ module Avm
             options[OPTION_TARGET_DIRECTORY] || default_target_directory
           )
         end
+
+        private
+
+        # @return [Avm::EacAsciidoctorBase0::Instances::Build::Theme]
+        def theme_uncached
+          ::Avm::EacAsciidoctorBase0::Instances::Build::Theme.new(self)
+        end
       end
     end
   end
