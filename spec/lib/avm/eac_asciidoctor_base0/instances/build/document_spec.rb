@@ -14,6 +14,9 @@ RSpec.describe Avm::EacAsciidoctorBase0::Instances::Build::Document do
     FileUtils.copy_entry(source.root_document.root_path, r)
     r
   end
+  let(:pre_processed_body_source_content) do
+    sanitize_body_source(instance.pre_processed_body_source_content)
+  end
 
   before do
     copy_template_hash(
@@ -37,7 +40,7 @@ RSpec.describe Avm::EacAsciidoctorBase0::Instances::Build::Document do
   end
 
   it do
-    expect(instance.pre_processed_body_source_content).to eq(target_file.read)
+    expect(pre_processed_body_source_content).to eq(target_file.read)
   end
 
   # @return [Avm::EacAsciidoctorBase0::Sources::Document]
@@ -68,5 +71,11 @@ RSpec.describe Avm::EacAsciidoctorBase0::Instances::Build::Document do
     basename = path.shift.to_s
     r = build_doc.child!(basename)
     path.any? ? build_doc_child(r, *path) : r
+  end
+
+  # @param source [String]
+  # @return [String]
+  def sanitize_body_source(source)
+    source.gsub(/^:stylesheet:\s*.+\s*$/, ':stylesheet: ../../../../theme/main.css')
   end
 end

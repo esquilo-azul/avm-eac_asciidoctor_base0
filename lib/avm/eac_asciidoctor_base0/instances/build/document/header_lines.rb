@@ -56,15 +56,15 @@ module Avm
                 breadcrumbs_lines
             end
 
+            # @return [Pathname]
+            def relative_path_to_stylesheet
+              build.theme.target_stylesheet_path
+                .relative_path_from(document.body_target_path.dirname)
+            end
+
             # @return [String]
             def stylesheet_line
               attribute_line('stylesheet', stylesheet_path)
-            end
-
-            # @return [Pathname]
-            def stylesheet_path
-              source_document.source.theme_stylesheet_path
-                .relative_path_from(document.convert_base_dir)
             end
 
             # @return [String]
@@ -74,6 +74,15 @@ module Avm
 
             def website
               instance.web_url
+            end
+
+            protected
+
+            # @return [Pathname]
+            def stylesheet_path_uncached
+              temp = ::EacRubyUtils::Fs::Temp.file
+              temp.write("@import '#{relative_path_to_stylesheet}'\n")
+              temp.to_pathname
             end
           end
         end
