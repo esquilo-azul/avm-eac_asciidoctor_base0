@@ -12,6 +12,12 @@ module Avm
           DEFAULT_THEME_DIRECTORY_SUBPATH = 'theme'
           THEME_STYLESHEET_BASENAME = 'main.css'
 
+          # @param target_directory_path [Pathname]
+          def copy_theme_directory_to(target_directory_path)
+            target_directory_path.parent.mkpath
+            ::FileUtils.copy_entry(theme_directory, target_directory_path)
+          end
+
           # @return [Pathname]
           def default_theme_directory
             path.join(DEFAULT_THEME_DIRECTORY_SUBPATH)
