@@ -13,7 +13,7 @@ module Avm
       # @raise [KeyError]
       def document(subpath)
         documents.find { |d| d.subpath.to_pathname == subpath.to_pathname } ||
-          raise(::KeyError, "Document not found with subáth = \"#{subpath}\"")
+          raise(::KeyError, "Document not found with subpath = \"#{subpath}\"")
       end
 
       # @return [Enumerable<Avm::EacAsciidoctorBase0::Sources::Document>]
