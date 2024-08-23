@@ -27,8 +27,9 @@ module Avm
           root_document.perform
         end
 
+        # @return [Pathname]
         def default_target_directory
-          source.path.join('build')
+          source.path.join('build/site')
         end
 
         def root_document
