@@ -2,6 +2,7 @@
 
 require 'asciidoctor'
 require 'avm/eac_asciidoctor_base0/instances/macros'
+require 'avm/eac_asciidoctor_base0/logging/catcher'
 require 'eac_ruby_utils/core_ext'
 
 module Avm
@@ -23,7 +24,9 @@ module Avm
 
             # @return [Asciidoctor::Document]
             def body_target_write
-              body_target_write_without_logging_catch
+              ::Avm::EacAsciidoctorBase0::Logging::Catcher.on do
+                body_target_write_without_logging_catch
+              end
             end
 
             protected
