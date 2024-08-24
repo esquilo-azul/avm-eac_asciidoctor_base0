@@ -23,6 +23,13 @@ module Avm
 
             # @return [Asciidoctor::Document]
             def body_target_write
+              body_target_write_without_logging_catch
+            end
+
+            protected
+
+            # @return [Asciidoctor::Document]
+            def body_target_write_without_logging_catch
               ::Asciidoctor.convert(
                 pre_processed_body_source_content,
                 base_dir: convert_base_dir,
