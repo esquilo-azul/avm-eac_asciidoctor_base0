@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'avm/eac_asciidoctor_base0/instances/build'
+require 'avm/eac_asciidoctor_base0/sources/runners/ignore_errors_option'
 require 'eac_cli/core_ext'
 require 'os'
 
@@ -9,16 +10,12 @@ module Avm
     module Sources
       module Runners
         class Build
+          include ::Avm::EacAsciidoctorBase0::Sources::Runners::IgnoreErrorsOption
+
           runner_with :help do
             desc 'Build the project'
             arg_opt '-d', '--target-dir', 'Directory to build'
             bool_opt '--open', 'Show the result.'
-          end
-
-          def run
-            start_banner
-            build.perform
-            open
           end
 
           private
@@ -41,6 +38,13 @@ module Avm
 
           def open_path
             build.root_document.body_target_path
+          end
+
+          # @return [void]
+          def run_without_rescue
+            start_banner
+            build.perform
+            open
           end
 
           def start_banner
