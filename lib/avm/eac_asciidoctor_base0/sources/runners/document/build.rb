@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'avm/eac_asciidoctor_base0/sources/runners/ignore_errors_option'
 require 'os'
 require 'eac_cli/core_ext'
 
@@ -9,11 +10,15 @@ module Avm
       module Runners
         class Document
           class Build
+            include ::Avm::EacAsciidoctorBase0::Sources::Runners::IgnoreErrorsOption
+
             runner_with :help do
               bool_opt '-O', '--open'
             end
 
-            def run
+            protected
+
+            def run_without_rescue
               %w[build open ending].each { |p| send("run_#{p}") }
             end
 
