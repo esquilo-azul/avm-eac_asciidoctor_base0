@@ -12,6 +12,7 @@ module Avm
             acts_as_abstract :run_without_rescue
 
             include ::EacCli::Runner
+
             runner_definition do
               bool_opt '-g', '--ignore-errors'
             end

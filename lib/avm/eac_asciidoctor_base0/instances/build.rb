@@ -10,6 +10,7 @@ module Avm
       class Build
         require_sub __FILE__
         include ::Avm::EacAsciidoctorBase0::DocumentsOwner
+
         enable_speaker
         enable_simple_cache
         enable_listable
