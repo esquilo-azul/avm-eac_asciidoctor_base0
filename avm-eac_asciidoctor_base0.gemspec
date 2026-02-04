@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.files = Dir['{lib,template}/**/*', 'template/avm/eac_asciidoctor_base0/instances/deploy/.keep']
   s.required_ruby_version = '>= 2.7'
 
-  s.add_dependency 'asciidoctor', '~> 2.0', '>= 2.0.23'
+  s.add_dependency 'asciidoctor', '~> 2.0', '>= 2.0.26'
   s.add_dependency 'avm-eac_webapp_base0', '~> 0.21', '>= 0.21.1'
   s.add_dependency 'eac_fs', '~> 0.19', '>= 0.19.1'
   s.add_dependency 'eac_ruby_utils', '~> 0.128', '>= 0.128.3'
