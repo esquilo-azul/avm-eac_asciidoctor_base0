@@ -19,8 +19,6 @@ module Avm
           def document_uncached
             source.document(subpath)
           end
-
-          require_sub __FILE__
         end
       end
     end

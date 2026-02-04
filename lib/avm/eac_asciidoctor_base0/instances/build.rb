@@ -4,7 +4,6 @@ module Avm
   module EacAsciidoctorBase0
     module Instances
       class Build
-        require_sub __FILE__
         include ::Avm::EacAsciidoctorBase0::DocumentsOwner
 
         enable_speaker

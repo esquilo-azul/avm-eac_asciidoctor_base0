@@ -23,8 +23,6 @@ module Avm
           def document_builder_class
             ::Avm::EacAsciidoctorBase0::Instances::Macros::ChildDocs::DocumentBuilder
           end
-
-          require_sub __FILE__
         end
       end
     end
