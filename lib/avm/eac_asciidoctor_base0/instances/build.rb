@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/eac_asciidoctor_base0/documents_owner'
-require 'eac_ruby_utils/core_ext'
-require 'eac_ruby_utils/fs/clearable_directory'
-
 module Avm
   module EacAsciidoctorBase0
     module Instances

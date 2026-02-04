@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/eac_asciidoctor_base0/logging/catcher'
-require 'eac_cli/core_ext'
-
 module Avm
   module EacAsciidoctorBase0
     module Sources

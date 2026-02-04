@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/eac_asciidoctor_base0/instances/build'
-require 'avm/eac_asciidoctor_base0/sources/runners/ignore_errors_option'
-require 'eac_cli/core_ext'
 require 'os'
 
 module Avm

@@ -1,12 +1,5 @@
 # frozen_string_literal: true
 
-require 'avm/eac_webapp_base0/sources/base'
-require 'avm/eac_asciidoctor_base0/documents_owner'
-require 'avm/eac_asciidoctor_base0/instances/build'
-require 'avm/eac_asciidoctor_base0/sources/document'
-require 'avm/eac_asciidoctor_base0/sources/runners'
-require 'eac_ruby_utils/core_ext'
-
 module Avm
   module EacAsciidoctorBase0
     module Sources

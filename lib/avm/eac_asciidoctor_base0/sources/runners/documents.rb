@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_cli/core_ext'
-
 module Avm
   module EacAsciidoctorBase0
     module Sources

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'asciidoctor'
-require 'eac_ruby_utils/core_ext'
 
 module Avm
   module EacAsciidoctorBase0
