@@ -28,6 +28,11 @@ module Avm
           source.path.join('build/site')
         end
 
+        # @return [EacRubyUtils::Fs::ClearableDirectory]
+        def pre_processed_directory
+          ::EacRubyUtils::Fs::ClearableDirectory.new(source.path.join('build/pre_processed'))
+        end
+
         def root_document
           ::Avm::EacAsciidoctorBase0::Instances::Build::Document
             .new(self, nil, source.root_document)
