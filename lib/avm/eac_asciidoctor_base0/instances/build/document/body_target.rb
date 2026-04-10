@@ -21,8 +21,8 @@ module Avm
 
             # @return [Asciidoctor::Document]
             def body_target_write
-              ::Asciidoctor.convert(
-                pre_processed_body_source_content,
+              ::Asciidoctor.convert_file(
+                pre_processed_body_source_path,
                 base_dir: convert_base_dir,
                 to_file: body_target_path.to_path, safe: :unsafe, mkdirs: true
               )

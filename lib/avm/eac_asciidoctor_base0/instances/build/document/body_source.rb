@@ -31,6 +31,16 @@ module Avm
                 .flat_map { |line| pre_process_line(line.rstrip) }
               ).map { |line| "#{line.rstrip}\n" }.join
             end
+
+            protected
+
+            # @return [Pathname]
+            def pre_processed_body_source_path_uncached
+              r = build.pre_processed_directory.join("#{source_document.subpath}.adoc")
+                    .assert_parent
+              r.write(pre_processed_body_source_content)
+              r
+            end
           end
         end
       end
