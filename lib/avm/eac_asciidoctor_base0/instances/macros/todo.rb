@@ -5,7 +5,7 @@ module Avm
     module Instances
       module Macros
         class Todo < ::Avm::EacAsciidoctorBase0::Instances::Macros::Base
-          RESULT_LINES = ['[pass]', '++++', '<span class="todo" />', '++++'].freeze
+          RESULT_LINES = ['[.todo]#TODO#'].freeze
 
           # @return [Array<String>]
           def result
