@@ -20,15 +20,6 @@ module Avm
             other.body_target_path.relative_path_from(body_target_path.dirname)
           end
 
-          # @return [Enumerable<String>]
-          def body_source_lines
-            if source_document.body_path.file?
-              source_document.body_path.read.each_line
-            else
-              default_body_source_lines
-            end
-          end
-
           # @param basename [String]
           # @return [Avm::EacAsciidoctorBase0::Instances::Build::Document, nil]
           def child(basename)
@@ -45,11 +36,6 @@ module Avm
           # @return [Pathname]
           def convert_base_dir
             source_document.root_path
-          end
-
-          # @return [Enumerable<String>]
-          def default_body_source_lines
-            macro_lines(:default_body)
           end
 
           # @param name [String]
@@ -72,14 +58,6 @@ module Avm
 
           def perform_children
             children.each(&:perform)
-          end
-
-          # @return [String]
-          def pre_processed_body_source_content
-            (
-              header_lines + [''] + body_source_lines
-              .flat_map { |line| pre_process_line(line.rstrip) }
-            ).map { |line| "#{line.rstrip}\n" }.join
           end
 
           def tree_documents_count
