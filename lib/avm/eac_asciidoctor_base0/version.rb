@@ -2,6 +2,6 @@
 
 module Avm
   module EacAsciidoctorBase0
-    VERSION = '0.26.1'
+    VERSION = '0.27.0'
   end
 end
