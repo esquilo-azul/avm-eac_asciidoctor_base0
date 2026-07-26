@@ -16,7 +16,7 @@ module Avm
         end
 
         def perform
-          template.apply(self, target_path)
+          eac_template.apply(self, target_path)
         end
       end
     end
