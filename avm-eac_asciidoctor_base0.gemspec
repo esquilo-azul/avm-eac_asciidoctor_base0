@@ -14,11 +14,11 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.7'
 
   s.add_dependency 'asciidoctor', '~> 2.0', '>= 2.0.26'
-  s.add_dependency 'avm-eac_webapp_base0', '~> 0.22', '>= 0.22.1'
-  s.add_dependency 'eac_fs', '~> 0.20', '>= 0.20.1'
-  s.add_dependency 'eac_ruby_utils', '~> 0.130'
+  s.add_dependency 'avm-eac_webapp_base0', '~> 0.22', '>= 0.22.3'
+  s.add_dependency 'eac_fs', '~> 0.20', '>= 0.20.2'
+  s.add_dependency 'eac_ruby_utils', '~> 0.131', '>= 0.131.3'
   s.add_dependency 'os', '~> 1.1', '>= 1.1.4'
   s.add_dependency 'rouge', '~> 3.30'
 
-  s.add_development_dependency 'eac_ruby_gem_support', '~> 0.12', '>= 0.12.2'
+  s.add_development_dependency 'eac_ruby_gem_support', '~> 0.14'
 end
