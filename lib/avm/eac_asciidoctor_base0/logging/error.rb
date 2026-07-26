@@ -6,9 +6,9 @@ module Avm
       class Error < ::RuntimeError
         attr_reader :level
 
-        def initialize(level, *args)
+        def initialize(level, *)
           @level = level
-          super(*args)
+          super(*)
         end
       end
     end

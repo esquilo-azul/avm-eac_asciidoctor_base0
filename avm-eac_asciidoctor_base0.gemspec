@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = 'Put here de description.'
 
   s.files = Dir['{lib,template}/**/*', 'template/avm/eac_asciidoctor_base0/instances/deploy/.keep']
-  s.required_ruby_version = '>= 2.7'
+  s.required_ruby_version = '>= 3.2'
 
   s.add_dependency 'asciidoctor', '~> 2.0', '>= 2.0.26'
   s.add_dependency 'avm-eac_webapp_base0', '~> 0.22', '>= 0.22.3'
