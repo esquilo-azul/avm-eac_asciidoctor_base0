@@ -16,7 +16,7 @@ module Avm
 
           # @return [Hash<Symbol, Integer]
           def methods_levels
-            LOGGER_METHODS.to_h { |method_name| [method_name, level_by_method(method_name)] }
+            LOGGER_METHODS.to_h { |method_name| [method_name, level_by_method(method_name)] } # rubocop:disable Rails/IndexWith
           end
 
           def on
