@@ -74,6 +74,6 @@ RSpec.describe Avm::EacAsciidoctorBase0::Instances::Build::Document do
   # @param source [String]
   # @return [String]
   def sanitize_body_source(source)
-    source.gsub(/^:stylesheet:\s*.+\s*$/, ':stylesheet: ../../../../theme/main.css')
+    source.gsub(/^:docinfodir:\s*.+\s*$/, ':docinfodir: /docinfodir')
   end
 end

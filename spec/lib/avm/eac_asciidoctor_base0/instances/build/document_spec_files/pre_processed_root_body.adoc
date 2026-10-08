@@ -1,4 +1,6 @@
-:stylesheet: ../../../../theme/main.css
+:docinfo: shared-head
+:docinfodir: /docinfodir
+:stylesheet!:
 = c1_1_1
 The Author <theauthor@example.net>
 :Author Initials: T.A.

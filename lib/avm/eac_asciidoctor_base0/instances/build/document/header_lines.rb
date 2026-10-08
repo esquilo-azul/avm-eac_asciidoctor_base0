@@ -50,8 +50,8 @@ module Avm
 
             # @return [Array<String>]
             def result
-              [stylesheet_line, title_line, author_line] + attributes_lines + [''] +
-                breadcrumbs_lines
+              docinfo_lines + [stylesheet_line, title_line, author_line] + attributes_lines +
+                [''] + breadcrumbs_lines
             end
 
             # @return [Pathname]
@@ -62,14 +62,7 @@ module Avm
 
             # @return [String]
             def stylesheet_line
-              attribute_line('stylesheet', stylesheet_path)
-            end
-
-            # @return [Pathname]
-            memoize def stylesheet_path
-              temp = ::EacRubyUtils::Fs::Temp.file
-              temp.write("@import '#{relative_path_to_stylesheet}'\n")
-              temp.to_pathname
+              attribute_line('stylesheet!', nil)
             end
 
             # @return [String]
@@ -80,6 +73,8 @@ module Avm
             def website
               instance.web_url
             end
+
+            require_sub __FILE__, require_mode: :kernel
           end
         end
       end
