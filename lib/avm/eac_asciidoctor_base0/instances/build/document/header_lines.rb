@@ -6,9 +6,9 @@ module Avm
       class Build
         class Document
           class HeaderLines
+            enable_memoized
             enable_method_class
             enable_settings_provider
-            enable_simple_cache
             common_constructor :document
 
             delegate :build, :source_document, to: :document
@@ -65,6 +65,13 @@ module Avm
               attribute_line('stylesheet', stylesheet_path)
             end
 
+            # @return [Pathname]
+            memoize def stylesheet_path
+              temp = ::EacRubyUtils::Fs::Temp.file
+              temp.write("@import '#{relative_path_to_stylesheet}'\n")
+              temp.to_pathname
+            end
+
             # @return [String]
             def title_line
               "= #{source_document.title}"
@@ -72,15 +79,6 @@ module Avm
 
             def website
               instance.web_url
-            end
-
-            protected
-
-            # @return [Pathname]
-            def stylesheet_path_uncached
-              temp = ::EacRubyUtils::Fs::Temp.file
-              temp.write("@import '#{relative_path_to_stylesheet}'\n")
-              temp.to_pathname
             end
           end
         end
