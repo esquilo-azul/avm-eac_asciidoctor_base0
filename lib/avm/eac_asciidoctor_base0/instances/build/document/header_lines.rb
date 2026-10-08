@@ -50,19 +50,14 @@ module Avm
 
             # @return [Array<String>]
             def result
-              docinfo_lines + [stylesheet_line, title_line, author_line] + attributes_lines +
-                [''] + breadcrumbs_lines
+              docinfo_lines + [title_line, author_line] + attributes_lines + [''] +
+                breadcrumbs_lines
             end
 
             # @return [Pathname]
             def relative_path_to_stylesheet
               build.theme.target_stylesheet_path
                 .relative_path_from(document.body_target_path.dirname)
-            end
-
-            # @return [String]
-            def stylesheet_line
-              attribute_line('stylesheet!', nil)
             end
 
             # @return [String]
