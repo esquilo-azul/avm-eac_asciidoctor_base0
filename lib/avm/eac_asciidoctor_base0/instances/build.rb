@@ -9,7 +9,7 @@ module Avm
         enable_speaker
         enable_simple_cache
         enable_listable
-        lists.add_symbol :option, :target_directory
+        lists.add_symbol :option, :source, :target_directory
         common_constructor :instance, :options, default: [{}] do
           self.options = self.class.lists.option.hash_keys_validate!(options.symbolize_keys)
         end
@@ -40,7 +40,7 @@ module Avm
 
         # @return [Avm::EacAsciidoctorBase0::Sources::Base]
         def source
-          instance.application.local_source
+          options[OPTION_SOURCE] || instance.application.local_source
         end
 
         def target_directory
